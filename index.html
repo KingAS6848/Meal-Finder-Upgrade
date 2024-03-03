@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meal Finder || Abhishek Sharma</title>
+ 
+  <script src="https://kit.fontawesome.com/14097a442a.js" crossorigin="anonymous"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="homepage-skeleton" style="background-color: aliceblue;">
+    <header class="skeleton-header">
+        <div class="skeleton-logo"></div>
+        <nav class="skeleton-nav">
+            <ul>
+                <li class="skeleton-link"></li>
+                <li class="skeleton-link"></li>
+                <li class="skeleton-link"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="skeleton-hero">
+        <div class="skeleton-image"></div>
+    </section>
+
+    <section class="skeleton-content">
+        <div class="skeleton-featured">
+            <div class="skeleton-block"></div>
+            <div class="skeleton-block"></div>
+            <div class="skeleton-block"></div>
+        </div>
+    </section>
+
+    <section class="call-to-action">
+        <div class="skeleton-cta-text"></div>
+        <div class="skeleton-cta-button"></div> 
+    </section>
+
+    <footer class="skeleton-footer">
+        <div class="skeleton-footer-content"></div>
+    </footer>
+</div>
+
+
+
+
+
+  <!--  body div -->
+  <div id="full-body">
+
+    <!--header section -->
+    <div id="header" class="container-fulied">
+
+      <!-- navbar -->
+      <div id="nav" class="navbar navbar-dark fixed-top" style="position: relative;">
+        <div class="container-fluid"  >
+          <a class="navbar-brand" href="index.html" style="background-color:white; padding: 10px; border-radius: 20px; color: black; font-size: xx-large;">Meal Finder</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" onclick="showFavMealList() " style="color: aliceblue; margin-right: 5%; background-color: darkorchid; padding: 10px; ">
+            <span  >Favourites</span>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header bg-danger">
+              <h5 style="background-color: white; padding: 10px; border-radius: 10px;">
+                Favourites
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <!--this div is for show favourite meals -->
+            <div id="favourites-body" class="offcanvas-body d-flex justify-content-center flex-wrap">
+              <div class="spinner-border text-success" role="status">
+                <span class="sr-only"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- header heading section-->
+      <div id="heading" class="container text-center">
+       
+      </div>
+
+      <!-- header search bar section -->
+      <div id="search-bar" class="container text-center mt-5" onkeyup="showMealList()">
+        <input type="search" id="my-search" class="form-control" placeholder="Search.." />
+      </div>
+
+      <!-- text -->
+      <div id="heading-text" class="mt-3 text-center">
+        <h5>Your Search Results:</h5>
+      </div>
+
+    </div>
+
+    <!--full body main section-->
+    <div id="main" class="d-flex justify-content-around container flex-wrap mt-5">
+      <div id="card" class="card mb-3 skeleton" style="width: 20rem;">
+       <div class="card-body">
+            <h5 class="card-body"></h5>
+            <div class="skeleton-line d-flex justify-content-between mt-5"></div>
+        </div>
+    </div>
+      <div id="card" class="card mb-3 skeleton" style="width: 20rem;">
+       <div class="card-body">
+            <h5 class="card-body"></h5>
+            <div class="skeleton-line d-flex justify-content-between mt-5"></div>
+        </div>
+    </div>
+      <div id="card" class="card mb-3 skeleton" style="width: 20rem;">
+        <div class="skeleton-img card-img-top"></div> 
+        <div class="card-body">
+            <div class="skeleton-title"></div>
+            <div class="skeleton-line d-flex justify-content-between mt-5"></div>
+         </div>
+     </div>
+     </div>
+      
+      
+  </div>
+
+  <!-- link to bootstrap js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+
+  <!-- link to js -->
+  <script src="script.js"></script>
+</body>
+
+</html>

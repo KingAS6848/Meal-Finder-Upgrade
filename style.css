@@ -1,0 +1,207 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+/* body  */
+body {
+    width: 100%;
+    background-image: linear-gradient(45deg, lightblue, lightgreen);
+    color: brown;
+}
+
+/* header heading section */
+#heading {
+    margin-top: 100px;
+
+}
+
+
+
+
+/* search bar section */
+#search-bar {
+    max-width: 600px;
+}
+
+#search-bar input {
+    height: 50px;
+    border-radius: 5px;
+}
+
+
+/* all meal details */
+#card {
+    background-color: orange;
+
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+
+
+/* meal details  */
+#meal-details {
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: orange;
+}
+
+#meal-header {
+    width: 70%;
+    margin: auto;
+}
+
+#meal-thumbail img {
+    height: 250px;
+    width: 250px;
+    margin-left: -200px;
+}
+
+#details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+}
+
+#meal-instruction {
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+
+
+
+/* favourites */
+#favourites-body {
+    background-color: white;
+}
+
+
+
+
+  .skeleton {
+    display: inline-block;
+    background-color: #eee; 
+    border-radius: 5px; 
+    margin: 10px;
+}
+
+.skeleton-img {
+    height: 200px; 
+    background-color: #ddd;  
+}
+
+.skeleton-title {
+    height: 20px; 
+    width: 80%;
+    background-color: #ddd; 
+    margin-bottom: 5px;
+}
+
+.skeleton-line {
+    height: 15px;
+    width: 60%;
+    background-color: #ddd; 
+}
+
+/* Loading animation */
+@keyframes loading-shimmer {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+}
+
+.skeleton {
+   animation: loading-shimmer 1.2s infinite linear;
+   background: #eee;
+   background: linear-gradient(to right, #eee 10%, #ddd 25%, #eee 35%);
+   background-size: 400px 100%;  
+}
+  
+
+/* Basic Skeleton Styling */
+.skeleton {
+    background-color: #eee; 
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.skeleton-header { 
+    padding: 15px; 
+}
+
+.skeleton-logo { 
+    width: 80px;
+    height: 30px; 
+    background-color: #ddd; 
+}
+
+.skeleton-nav ul { 
+    display: flex; 
+}
+
+.skeleton-link {
+    width: 80px; 
+    height: 20px; 
+    margin-right: 10px; 
+    background-color: #ddd;  
+}
+
+.skeleton-hero { 
+    padding: 30px; 
+}
+
+.skeleton-image { 
+    height: 250px; 
+    background-color: #ddd; 
+}
+
+.skeleton-content, .call-to-action, .skeleton-footer { 
+    padding: 20px; 
+}
+
+.skeleton-block {
+    width: 30%; 
+    height: 150px; 
+    margin-bottom: 15px; 
+    background-color: #ddd; 
+}
+
+.skeleton-cta-text {
+    width: 60%;
+    height: 30px; 
+    margin-bottom: 10px; 
+    background-color: #ddd; 
+}
+
+.skeleton-cta-button {
+    width: 120px;
+    height: 40px; 
+    background-color: #ddd; 
+}
+
+.skeleton-footer-content {
+    height: 50px;  
+    background-color: #ddd; 
+}
+
+/* Animation */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+} 
+
+.skeleton {
+  animation: shimmer 1.2s linear infinite;
+  background: #eee;
+  background: linear-gradient(to right, #eee 10%, #ddd 25%, #eee 35%);
+  background-size: 400px 100%;  
+}
