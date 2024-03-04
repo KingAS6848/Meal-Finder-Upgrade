@@ -3,6 +3,13 @@ if (localStorage.getItem("favouritesList") == null) {
     localStorage.setItem("favouritesList", JSON.stringify([]));
 }
 
+// fetching data from API
+async function fetchMealsFromApi(url,value) {
+    const response=await fetch(`${url+value}`);
+    const meals=await response.json();
+    return meals;
+}
+
 document.getElementById('full-body').style.display='none';
 function skel(){
     
@@ -10,16 +17,12 @@ function skel(){
     document.getElementById('full-body').style.display='block';
 
 }
+// Homepage Skeleton show while content loading
+
 window.onload=setTimeout(skel,2000);
 
 
-// fetching data from API
-async function fetchMealsFromApi(url,value) {
 
-    const response=await fetch(`${url+value}`);
-    const meals=await response.json();
-    return meals;
-}
 
 function showMealAtStart(){
     let inputValue = "c";
@@ -39,7 +42,7 @@ function showMealAtStart(){
                 if (isFav) {
                     html += `
                 <div id="card" class="card mb-3" style="width: 20rem;">
-                    <img src="${element.strMealThumb}" class="card-img-top" alt="...">
+                    <img src="${element.strMealThumb}" class="card-img-top " alt="...">
                     <div class="card-body">
                         <h5 class="card-title">${element.strMeal}</h5>
                         <div class="d-flex justify-content-between mt-5">
@@ -64,62 +67,52 @@ function showMealAtStart(){
                 `;
                 }  
             });
-        } else {
-            html += `
-            <div class="page-wrap d-flex flex-row align-items-center">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-12 text-center">
-                            <span class="display-1 d-block">404</span>
-                            <div class="mb-4 lead">
-                                OOPS! Not Found
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `;
         }
-       
-        document.getElementById("main").innerHTML = "";
-        document.getElementById("main").innerHTML = html;
+        
+              document.getElementById("main").innerHTML = html;
+
+          
+        
     });
 }
-
-window.onload = setTimeout(showMealAtStart,4000) ;
+// Skeleton show while content loading
+window.onload = setTimeout(showMealAtStart,4000);
 
 
 // Show all the meal got from Results
-function showMealList(){
+async function showMealList(){
+  
     let inputValue = document.getElementById("my-search").value;
     let arr=JSON.parse(localStorage.getItem("favouritesList"));
     let url="https://www.themealdb.com/api/json/v1/1/search.php?s=";
     let html = "";
+    // Skeleton
     document.getElementById("main").innerHTML = `<div id="card" class="card mb-3 skeleton" style="width: 20rem;">
-    <div class="card-body">
-         <h5 class="card-body"></h5>
-         <div class="skeleton-line d-flex justify-content-between mt-5"></div>
-     </div>
- </div>
-   <div id="card" class="card mb-3 skeleton" style="width: 20rem;">
-    <div class="card-body">
-         <h5 class="card-body"></h5>
-         <div class="skeleton-line d-flex justify-content-between mt-5"></div>
-     </div>
- </div>
-   <div id="card" class="card mb-3 skeleton" style="width: 20rem;">
-     <div class="skeleton-img card-img-top"></div> 
-     <div class="card-body">
-         <div class="skeleton-title"></div>
-         <div class="skeleton-line d-flex justify-content-between mt-5"></div>
+    <div class="skeleton-img card-img-top"></div> 
+  
+         <div class="card-body">
+              <h5 class="card-body"></h5>
+              <div class="skeleton-line d-flex justify-content-between mt-5"></div>
+          </div>
       </div>
-  </div>
-  </div>
-   `;
-
-    let meals=fetchMealsFromApi(url,inputValue);
-    
-    meals.then(data=>{
+        <div id="card" class="card mb-3 skeleton" style="width: 20rem;">
+          <div class="skeleton-img card-img-top"></div> 
+  
+         <div class="card-body">
+              <h5 class="card-body"></h5>
+              <div class="skeleton-line d-flex justify-content-between mt-5"></div>
+          </div>
+      </div>
+        <div id="card" class="card mb-3 skeleton" style="width: 20rem;">
+          <div class="skeleton-img card-img-top"></div> 
+          <div class="card-body">
+              <div class="skeleton-title"></div>
+              <div class="skeleton-line d-flex justify-content-between mt-5"></div>
+           </div>
+       </div>
+       </div>
+  </div>`;
+    let data = await fetchMealsFromApi(url,inputValue);
         if (data.meals) {
             data.meals.forEach((element) => {
                 let isFav=false;
@@ -156,25 +149,9 @@ function showMealList(){
                 `;
                 }  
             });
-        } else {
-            html += `
-            <div class="page-wrap d-flex flex-row align-items-center">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-12 text-center">
-                            <span class="display-1 d-block">404</span>
-                            <div class="mb-4 lead">
-                                OOPS! Not Found
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `;
         }
-        document.getElementById("main").innerHTML = "";
         document.getElementById("main").innerHTML = html;
-    });
+    
 }
 
 
@@ -183,7 +160,8 @@ function showMealList(){
 async function showMealDetails(id) {
     let url="https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
     let html="";
-    await fetchMealsFromApi(url,id).then(data=>{
+   let data = await fetchMealsFromApi(url,id);
+   
         html += `
           <div id="meal-details" class="mb-5">
             <div id="meal-header" class="d-flex justify-content-around flex-wrap">
@@ -205,7 +183,7 @@ async function showMealDetails(id) {
             </div>
           </div>
         `;
-    });
+   
     document.getElementById("main").innerHTML=html;
 }
 
@@ -235,6 +213,7 @@ function addRemoveToFavList(id) {
 
 // Favourite List created (When we click on favourite button this List will Open)
 async function showFavMealList() {
+    document.getElementById("favSearch").value = '';
     let arr=JSON.parse(localStorage.getItem("favouritesList"));
     let url="https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
     let html="";
@@ -255,25 +234,57 @@ async function showFavMealList() {
             `;
     } else {
         for (let index = 0; index < arr.length; index++) {
-            await fetchMealsFromApi(url,arr[index]).then(data=>{
+         let data=   await fetchMealsFromApi(url,arr[index]);
+                
                 html += `
-                <div id="card" class="card mb-3" style="width: 20rem;">
-                    <img src="${data.meals[0].strMealThumb}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${data.meals[0].strMeal}</h5>
-                        <div class="d-flex justify-content-between mt-5">
-                            <button type="button" class="btn btn-outline-light" onclick="showMealDetails(${data.meals[0].idMeal})">More Details</button>
-                            <button id="main${data.meals[0].idMeal}" class="btn btn-outline-light active" onclick="addRemoveToFavList(${data.meals[0].idMeal})">Remove</i></button>
-                        </div>
-                    </div>
-                </div>
+                <div id="cardfav" style="display="block">
+             <span>   ${data.meals[0].strMeal} </span>
+
+                   <img src="${data.meals[0].strMealThumb}"  alt="..."> <br>
+                      <button id="main${data.meals[0].idMeal}" class="btn btn-outline-light active" onclick="addRemoveToFavList(${data.meals[0].idMeal})">Remove</i></button>
+
+                      </div>
+
                 `;
-            });   
+          
         }
     }
     document.getElementById("favourites-body").innerHTML=html;
 }
 
+
+function showFavSearch(){
+    let inputValue = document.getElementById("favSearch").value;
+    let arr=JSON.parse(localStorage.getItem("favouritesList"));
+    let url="https://www.themealdb.com/api/json/v1/1/search.php?s=";
+    let html = "";
+    let meals=fetchMealsFromApi(url,inputValue);
+    meals.then(data=>{
+        if (data.meals) {
+            data.meals.forEach((element) => {
+                let isFav=false;
+                for (let index = 0; index < arr.length; index++) {
+                    if(arr[index]==element.idMeal){
+                        isFav=true;
+                    }
+                }
+                if (isFav) {
+                    html += `
+                <div id="cardfav" style="display="block">
+             <span>   ${data.meals[0].strMeal} </span>
+
+                    <img src="${data.meals[0].strMealThumb}"  alt="..."> <br>
+                      <button id="main${data.meals[0].idMeal}" class="btn btn-outline-light active" onclick="addRemoveToFavList(${data.meals[0].idMeal})">Remove</i></button>
+                </div>
+                `;
+                }
+            });
+        }else{
+            html+="This item is not in Your Favourite List";
+        }
+        document.getElementById("favourites-body").innerHTML = html;
+    });
+}
 
 
 

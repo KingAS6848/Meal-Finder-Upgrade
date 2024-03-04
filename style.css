@@ -29,6 +29,7 @@ body {
 #search-bar input {
     height: 50px;
     border-radius: 5px;
+   margin-bottom: -12px;
 }
 
 
@@ -82,126 +83,189 @@ body {
 
 /* favourites */
 #favourites-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    /* flex-wrap: wrap; */
+    margin-top: 80px;
     background-color: white;
+    height: auto;
+    overflow-y: auto;
+    
 }
 
 
-
-
-  .skeleton {
+#cardfav{
+    /* margin-bottom: -20rem !important;
+    padding: 0 !important; */
     display: inline-block;
-    background-color: #eee; 
-    border-radius: 5px; 
-    margin: 10px;
+    margin-left: 13px;
+    margin-bottom: 40px;
 }
 
-.skeleton-img {
-    height: 200px; 
-    background-color: #ddd;  
-}
-
-.skeleton-title {
-    height: 20px; 
-    width: 80%;
-    background-color: #ddd; 
-    margin-bottom: 5px;
-}
-
-.skeleton-line {
-    height: 15px;
-    width: 60%;
-    background-color: #ddd; 
-}
-
-/* Loading animation */
-@keyframes loading-shimmer {
-    0% { background-position: -400px 0; }
-    100% { background-position: 400px 0; }
-}
-
-.skeleton {
-   animation: loading-shimmer 1.2s infinite linear;
-   background: #eee;
-   background: linear-gradient(to right, #eee 10%, #ddd 25%, #eee 35%);
-   background-size: 400px 100%;  
-}
-  
-
-/* Basic Skeleton Styling */
-.skeleton {
-    background-color: #eee; 
-    margin: 10px;
+#cardfav button{
+    font-family: sans-serif;
+    background-color: 	#bb2124;
+    width: 9rem;
+    margin-left: 227px;
+    margin-top: -154px;
     border-radius: 5px;
+    border: 2px solid black;
+    font-size: 20px;
+    color: white;
+    height: 8rem;
 }
 
-.skeleton-header { 
-    padding: 15px; 
+#cardfav button:hover{
+    background-color: rgb(235, 36, 36);
+    opacity: 0.9;
 }
 
-.skeleton-logo { 
-    width: 80px;
-    height: 30px; 
-    background-color: #ddd; 
+#cardfav span{
+    font-size: 20px;
+    padding: 5px;
+    font-family: sans-serif;
+    background-color: 	#bb2124;
+    color: white;
+    border-radius: 4px;
 }
 
-.skeleton-nav ul { 
-    display: flex; 
+
+#cardfav img{
+  
+    width: 14rem;
+    height: 8rem;
+    margin-right: 190px;
+    border-radius: 5px;
+
 }
 
-.skeleton-link {
-    width: 80px; 
-    height: 20px; 
-    margin-right: 10px; 
-    background-color: #ddd;  
-}
+/* #favMoreDetails{
+    width: 151px;
+    height: 35px;
+} */
 
-.skeleton-hero { 
-    padding: 30px; 
-}
 
-.skeleton-image { 
-    height: 250px; 
-    background-color: #ddd; 
-}
+ /*                         **********************Test Skeleton**********                         */
 
-.skeleton-content, .call-to-action, .skeleton-footer { 
-    padding: 20px; 
-}
 
-.skeleton-block {
-    width: 30%; 
-    height: 150px; 
-    margin-bottom: 15px; 
-    background-color: #ddd; 
-}
+        /* Card styles */ 
 
-.skeleton-cta-text {
-    width: 60%;
-    height: 30px; 
-    margin-bottom: 10px; 
-    background-color: #ddd; 
-}
 
-.skeleton-cta-button {
-    width: 120px;
-    height: 40px; 
-    background-color: #ddd; 
-}
-
-.skeleton-footer-content {
-    height: 50px;  
-    background-color: #ddd; 
-}
-
-/* Animation */
-@keyframes shimmer {
-  0% { background-position: -400px 0; }
-  100% { background-position: 400px 0; }
-} 
-
-.skeleton {
-  animation: shimmer 1.2s linear infinite;
-  background: #eee;
-  background: linear-gradient(to right, #eee 10%, #ddd 25%, #eee 35%);
-  background-size: 400px 100%;  
-}
+        .skeleton {
+            display: inline-block;
+            background-color: #eee; 
+            border-radius: 5px; 
+            margin: 10px;
+        }
+        
+        .skeleton-img {
+            height: 200px; 
+            background-color: #ddd;  
+        }
+        
+        .skeleton-title {
+            height: 20px; 
+            width: 80%;
+            background-color: #ddd; 
+            margin-bottom: 5px;
+        }
+        
+        .skeleton-line {
+            height: 15px;
+            width: 60%;
+            background-color: #ddd; 
+        }
+        
+        /* Loading animation */
+        @keyframes loading-shimmer {
+            0% { background-position: -400px 0; }
+            100% { background-position: 400px 0; }
+        }
+        
+        .skeleton {
+           animation: loading-shimmer 1.2s infinite linear;
+           background: #eee;
+           background: linear-gradient(to right, #eee 10%, #ddd 25%, #eee 35%);
+           background-size: 400px 100%;  
+        }
+          
+        
+        /* Basic Skeleton Styling */
+        .skeleton {
+            background-color: #eee; 
+            margin: 10px;
+            border-radius: 5px;
+        }
+        
+        .skeleton-header { 
+            padding: 15px; 
+        }
+        
+        .skeleton-logo { 
+            width: 80px;
+            height: 30px; 
+            background-color: #ddd; 
+        }
+        
+        .skeleton-nav ul { 
+            display: flex; 
+        }
+        
+        .skeleton-link {
+            width: 80px; 
+            height: 20px; 
+            margin-right: 10px; 
+            background-color: #ddd;  
+        }
+        
+        .skeleton-hero { 
+            padding: 30px; 
+        }
+        
+        .skeleton-image { 
+            height: 250px; 
+            background-color: #ddd; 
+        }
+        
+        .skeleton-content, .call-to-action, .skeleton-footer { 
+            padding: 20px; 
+        }
+        
+        .skeleton-block {
+            width: 30%; 
+            height: 150px; 
+            margin-bottom: 15px; 
+            background-color: #ddd; 
+        }
+        
+        .skeleton-cta-text {
+            width: 60%;
+            height: 30px; 
+            margin-bottom: 10px; 
+            background-color: #ddd; 
+        }
+        
+        .skeleton-cta-button {
+            width: 120px;
+            height: 40px; 
+            background-color: #ddd; 
+        }
+        
+        .skeleton-footer-content {
+            height: 50px;  
+            background-color: #ddd; 
+        }
+        
+        /* Animation */
+        @keyframes shimmer {
+          0% { background-position: -400px 0; }
+          100% { background-position: 400px 0; }
+        } 
+        
+        .skeleton {
+          animation: shimmer 1.2s linear infinite;
+          background: #eee;
+          background: linear-gradient(to right, #eee 10%, #ddd 25%, #eee 35%);
+          background-size: 400px 100%;  
+        }
